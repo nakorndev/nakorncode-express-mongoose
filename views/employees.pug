@@ -1,0 +1,28 @@
+extends _layout
+
+block content
+  h1.title รายชื่อพนักงาน
+  hr
+  .content
+    table.is-fullwidth
+      thead
+        tr
+          th #
+          th แผนก
+          th ชื่อพนักงาน
+          th ที่อยู่อีเมล
+          th เงินเดือน
+          th เพศ
+          th วันเกิด
+          th สถานะ
+      tbody
+        each employee of employees
+          tr
+            td #{employee.code}
+            td #{employee.department.short}
+            td #{employee.name}
+            td #{employee.email}
+            td #{employee.salaryLocale}
+            td #{employee.genderLocale}
+            td #{employee.birthDateLocale}
+            td #{employee.isActive ? 'ทำงานอยู่' : 'ลาออก'}
